@@ -1,32 +1,51 @@
 #include <iostream>
+#include <vector>
 #include <limits>
 
+using namespace std;
+
 int main() {
-    int n;
-    std::cout << "Введіть розмір масиву: ";
-    std::cin >> n;
-    
-    int *A = new int[n];
-    std::cout << "Введіть елементи масиву: ";
-    for (int i = 0; i < n; ++i) {
-        std::cin >> A[i];
+    int n, T;
+    cout << "Input array size: ";
+    cin >> n;
+
+    vector<int> arr(n);
+    cout << "Input array elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
 
-    int minPositive = std::numeric_limits<int>::max();
-    int minIndex = -1;
+    cout << "Input T: ";
+    cin >> T;
 
-    for (int i = 0; i < n; ++i) {
-        if (A[i] > 0 && A[i] < minPositive) {
-            minPositive = A[i];
-            minIndex = i;
+    int first_greater_idx = -1;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > T) {
+            first_greater_idx = i;
+            break;
         }
     }
 
-    if (minIndex != -1) {
-        std::cout << "Мінімальний додатний елемент: " << minPositive << " з індексом " << minIndex << std::endl;
+    if (first_greater_idx == -1) {
+        cout << "There is no element in the array larger than T." << endl;
+        return 0;
+    }
+
+    int max_neg = numeric_limits<int>::min();
+    int max_neg_idx = -1;
+
+    for (int i = 0; i < first_greater_idx; i++) {
+        if (arr[i] < 0 && arr[i] > max_neg) {
+            max_neg = arr[i];
+            max_neg_idx = i;
+        }
+    }
+
+    if (max_neg_idx != -1) {
+        cout << "The number of the first maximum negative element: " << max_neg_idx + 1 << std::endl;
     }
     else {
-        std::cout << "У масиві немає додатних елементів." << std::endl;
+        cout << "There are no negative numbers among the elements up to the first one greater than T." << std::endl;
     }
 
     return 0;
