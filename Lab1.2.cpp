@@ -3,6 +3,7 @@
 #include <limits>
 
 int main()
+
 {
     std::vector<int> arr;
     int n, T;
