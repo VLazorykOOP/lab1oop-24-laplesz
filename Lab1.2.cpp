@@ -21,7 +21,7 @@ int main()
     std::cout << "Enter the number T: ";
     std::cin >> T;
 
-    int maxNegative = std::numeric_limits<int>::min(); // Minimum int value
+    int maxNegative = std::numeric_limits<int>::min();
     int maxNegativeIndex = -1;
 
     for (size_t i = 0; i < arr.size(); ++i)
