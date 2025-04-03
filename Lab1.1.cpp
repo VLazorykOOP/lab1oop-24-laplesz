@@ -28,12 +28,12 @@ int main()
 
     if (minIndex != -1)
     {
-        std::cout << "Мінімальний додатний елемент: " << minPos << std::endl;
-        std::cout << "Його індекс: " << minIndex << std::endl;
+        std::cout << "Min positive element: " << minPos << std::endl;
+        std::cout << "It's index: " << minIndex << std::endl;
     }
     else
     {
-        std::cout << "У масиві немає додатних елементів." << std::endl;
+        std::cout << "No positive elements." << std::endl;
     }
 
     return 0;
