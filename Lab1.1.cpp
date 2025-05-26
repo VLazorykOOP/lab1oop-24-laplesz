@@ -7,7 +7,7 @@ int main()
     std::cout << "Input array size: ";
     std::cin >> N;
 
-    int A[N];
+    int* A = new int[N];
     std::cout << "Input " << N << " element: ";
     for (int i = 0; i < N; i++)
     {
